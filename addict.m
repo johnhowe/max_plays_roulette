@@ -1,7 +1,7 @@
 function [stakes] = addict (income, rounds)
 
 global verbose;
-verbose = 1;
+verbose = 0;
 
 stakes = income;
 
@@ -40,12 +40,13 @@ for i = 1:rounds
         if (odd_bet) fprintf(1, 'You bet %d on odd.\n', odd_bet); end
         switch (colour(pocket))
             case 0
-                fprintf(1, 'Dealer spins a green %d, you bet %d and won %d.\n\n', pocket, sum(bets), sum(payout)); 
+                fprintf(1, 'Dealer spins a green %d, you bet $%d and won $%d.\n', pocket, sum(bets), sum(payout)); 
             case 1
-                fprintf(1, 'Dealer spins a red %d, you bet %d and won %d.\n\n', pocket, sum(bets), sum(payout)); 
+                fprintf(1, 'Dealer spins a red %d, you bet $%d and won $%d.\n', pocket, sum(bets), sum(payout)); 
             case 2
-                fprintf(1, 'Dealer spins a black %d, you bet %d and won %d.\n\n', pocket, sum(bets), sum(payout)); 
+                fprintf(1, 'Dealer spins a black %d, you bet $$%d and won $%d.\n', pocket, sum(bets), sum(payout)); 
         end
+        fprintf(1, 'You have $%d.\n\n', stakes); 
     end
 
     stakes = stakes + sum(payout);
@@ -78,4 +79,4 @@ for i = 1:rounds
     end
 end
 
-fprintf(1, 'You came with $%d and leave with $%d after %d rounds, a net take of $%d\n', income, stakes, i, stakes - income); 
+fprintf(1, 'You came with $%d and leave with $%d after %d spins, a take of $%d\n', income, stakes, i, stakes - income); 

@@ -18,9 +18,9 @@ if (run >= run_to_bet)
     end
     if (stakes < bet)
         if (verbose)
-            fprintf(1, 'You can only afford to bet %d.\n', stakes);
+            fprintf(1, 'You cant play, as you only have $%d and are wanting to bet $%d.\n', stakes, bet);
         end
-        bet = stakes;
+        bet = 0;
     end
     stakes = stakes - bet;
 else

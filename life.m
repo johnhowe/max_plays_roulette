@@ -1,13 +1,15 @@
 
-rounds = 80; % rounds played per binge
-investments = 200; % $ starting each binge
+rounds = 40; % rounds played per binge
+investments = 100; % $ starting each binge
 lifetime = 52; % binges to indulge in
 
 winnings = 0;
 record_win = 0;
 
+wealth = zeros (1,lifetime);
 
-for j=0:lifetime
+for j=1:lifetime
+    wealth (1,j) = winnings;
     returns = addict (investments, rounds);
     winnings = winnings + returns - investments;
     if (returns > record_win)
@@ -24,4 +26,5 @@ else
     fprintf(1, 'You have beaten the odds over %d nights. You are up $%d.\n', lifetime, winnings); 
 end
 
+plot (wealth);
 
