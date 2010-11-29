@@ -16,7 +16,7 @@ for i = 1:rounds
     if stakes <= 0
         % You loose
         if (verbose)
-            fprintf(1, 'You lost all your money in %d rounds.\n', i); 
+            fprintf(1, 'Max lost all his money in %d rounds.\n', i); 
         end
         break;
     end
@@ -32,19 +32,19 @@ for i = 1:rounds
     [payout, pocket] = gamble (bets);
 
     if (verbose)
-        if (low_bet) fprintf(1, 'You bet %d on low.\n', low_bet); end
-        if (high_bet) fprintf(1, 'You bet %d on high.\n', high_bet); end
-        if (red_bet) fprintf(1, 'You bet %d on red.\n', red_bet); end
-        if (black_bet) fprintf(1, 'You bet %d on black.\n', black_bet); end
-        if (even_bet) fprintf(1, 'You bet %d on even.\n', even_bet); end
-        if (odd_bet) fprintf(1, 'You bet %d on odd.\n', odd_bet); end
+        if (low_bet) fprintf(1, 'Max bet %d on low.\n', low_bet); end
+        if (high_bet) fprintf(1, 'Max bet %d on high.\n', high_bet); end
+        if (red_bet) fprintf(1, 'Max bet %d on red.\n', red_bet); end
+        if (black_bet) fprintf(1, 'Max bet %d on black.\n', black_bet); end
+        if (even_bet) fprintf(1, 'Max bet %d on even.\n', even_bet); end
+        if (odd_bet) fprintf(1, 'Max bet %d on odd.\n', odd_bet); end
         switch (colour(pocket))
             case 0
-                fprintf(1, 'Dealer spins a green %d.\nYou won $%d.\n', pocket, sum(payout)); 
+                fprintf(1, 'Dealer spins a green %d.\nMax won $%d.\n', pocket, sum(payout)); 
             case 1
-                fprintf(1, 'Dealer spins a red %d.\nYou won $%d.\n', pocket, sum(payout)); 
+                fprintf(1, 'Dealer spins a red %d.\nMax won $%d.\n', pocket, sum(payout)); 
             case 2
-                fprintf(1, 'Dealer spins a black %d.\nYou won $%d.\n', pocket, sum(payout)); 
+                fprintf(1, 'Dealer spins a black %d.\nMax won $%d.\n', pocket, sum(payout)); 
             otherwise
                 fprintf(1, 'Dealer, are you there?'); 
         end
@@ -53,7 +53,7 @@ for i = 1:rounds
     stakes = stakes + sum(payout);
 
     if (verbose)
-        fprintf(1, 'You have $%d.\n\n', stakes); 
+        fprintf(1, 'Max has $%d.\n\n', stakes); 
     end
 
     % Updating the length of the runs
@@ -89,5 +89,5 @@ for i = 1:rounds
     end
 end
 
-fprintf(1, 'You came with $%d and leave with $%d after %d spins, a take of $%d\n', income, stakes, i, stakes - income); 
+fprintf(1, 'Max came with $%d and leaves with $%d after %d spins, a take of $%d\n', income, stakes, i, stakes - income); 
 

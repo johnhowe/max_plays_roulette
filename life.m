@@ -1,7 +1,7 @@
 
-rounds = 40; % rounds played per binge
-investments = 100; % $ starting each binge
-lifetime = 52; % binges to indulge in
+rounds = 40; % Max likes to indulge in 40 rounds when he is binging.
+investments = 100; % Max likes to break out a $100 bill each time he goes on a binge.
+lifetime = 365*40; % How many binges does Max want to take?
 
 winnings = 0;
 record_win = 0;
@@ -15,16 +15,22 @@ for j=1:lifetime
     if (returns > record_win)
         record_win = returns;
     end
+
 end
 
-fprintf(1, 'Your biggest take was $%d.\n', record_win - investments); 
+fprintf(1, 'Max%ss biggest take was $%d.\n', "'", record_win - investments); 
 
 
 if (winnings<0)
-    fprintf(1, 'Having spent %d nights at the casino you have lost $%d.\n', lifetime, abs(winnings)); 
+    fprintf(1, 'Having spent %d nights at the casino Max lost $%d.\n', lifetime, abs(winnings)); 
 else
-    fprintf(1, 'You have beaten the odds over %d nights. You are up $%d.\n', lifetime, winnings); 
+    fprintf(1, 'Max has beaten the odds over %d nights. Max is up $%d.\n', lifetime, winnings); 
 end
 
-plot (wealth);
+plot (wealth)
+xlabel('Nights at the casino')
+ylabel('Winnings ($)')
+title('The life of Max')
+print (strcat(int2str(time()), ".png"), '-dpng')
+
 
