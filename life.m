@@ -9,6 +9,7 @@ record_win = 0;
 wealth = zeros (1,lifetime);
 
 for j=1:lifetime
+    fprintf(1, '%3d%% ', 100*(j/lifetime));
     wealth (1,j) = winnings;
     returns = addict (investments, rounds);
     winnings = winnings + returns - investments;
