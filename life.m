@@ -1,7 +1,7 @@
 
 rounds = 40; % Max likes to indulge in 40 rounds when he is binging.
 investments = 100; % Max likes to break out a $100 bill each time he goes on a binge.
-lifetime = 365*40; % How many binges does Max want to take?
+lifetime = 365.25*40; % How many binges does Max want to take?
 
 winnings = 0;
 record_win = 0;
