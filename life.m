@@ -15,7 +15,7 @@ for j=1:lifetime
     if (returns > record_win)
         record_win = returns;
     end
-
+    fflush(stdout);
 end
 
 fprintf(1, 'Max%ss biggest take was $%d.\n', "'", record_win - investments); 
